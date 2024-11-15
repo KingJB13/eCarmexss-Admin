@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/Sidebar';
-import { FaChartBar, FaPlus, FaCalendarAlt } from "react-icons/fa";
+import { FaChartBar, FaPlus, FaCalendarAlt, FaUserAlt, FaIdCardAlt } from "react-icons/fa";
 import axios from '../../api/axios';
+import { toast } from 'react-toastify';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -26,10 +27,13 @@ const Register = () => {
     const [errors, setErrors] = useState({});
 
     const menus = [
-        { title: "Dashboard", icon: <FaChartBar />, path: "/Home" },
-        { title: "Register", icon: <FaPlus />, path: "/Register" },
-        { title: "Manage Shifts", icon: <FaCalendarAlt />, path: "" },
-    ];
+        { title: "Dashboard", icon: <FaChartBar />, path: "/home" },
+        { title: "Register", icon: <FaPlus />, path: "/register" },
+        { title: "Driver", icon: <FaIdCardAlt />, path: "/driver" },
+        { title: "Conductor", icon: <FaIdCardAlt />, path: "/conductor" },
+        { title: "Active Trips", icon: <FaCalendarAlt />, path: "/trip" },
+        { title: "Register Conductor", icon: <FaUserAlt />, path: "/register-conductor"}
+      ];
 
     const validateField = (section, field, value) => {
         const newErrors = { ...errors };
@@ -188,9 +192,9 @@ const Register = () => {
             const token = localStorage.getItem('Token');
             const response = await axios.post('auth/signup/operator', formData, {headers: {'Authorization': `Bearer ${token}`}});
             console.log('Response:', response.data);
-            alert('Account created successfully!');
+            toast.success('Account created successfully!');
         } catch (error) {
-            console.error('There was an error!', error);
+            toast.error('error occured in creating an operator account');
         }
     };
 

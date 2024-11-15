@@ -31,7 +31,7 @@ const LoginScreen = () => {
                 localStorage.setItem('Token', response.data.login);
                 localStorage.setItem('AdminId', adminId);
                 localStorage.setItem('Role', role);
-                navigate(`/Home?adminId=${adminId}`);
+                navigate(`/Home`);
             }
         } catch (error) {
             setError(`Error: ${error}`);

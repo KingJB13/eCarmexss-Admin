@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from '../api/axios';
+
 const ResetPassword = () => {
     const [password, setPassword] = useState('');
     const location = useLocation();
@@ -8,6 +9,13 @@ const ResetPassword = () => {
     const token = queryParams.get('token');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        if(!token){
+            navigate('/404');
+        }
+    },[token, navigate])
     const handleReset = async () => {
         try {
             const resetData = { password: password };
