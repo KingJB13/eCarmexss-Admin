@@ -45,7 +45,7 @@ const Driver = () => {
   };
 
   const filteredoperatorData = operatorData.filter((operator) =>
-    operator.busNo.toLowerCase().includes(searchQuery.toLowerCase())
+    String(operator.jeepneyNumber).includes(searchQuery)
   );
 
   const handleSearchBar = (e) => {
@@ -69,7 +69,7 @@ const Driver = () => {
         <div className="w-full max-w-full border border-gray-300 rounded-2xl p-6 sm:p-8 bg-white shadow-lg">
         <div className="w-full flex justify-end mb-4">
             <input
-              type="text"
+              type="number"
               placeholder="Search by Bus No."
               value={searchQuery}
               onChange={handleSearchBar}
@@ -84,7 +84,6 @@ const Driver = () => {
                   <th className="py-2 px-4 border-b">Driver Name</th>
                   <th className="py-2 px-4 border-b">Bus No.</th>
                   <th className="py-2 px-4 border-b">Plate No.</th>
-                  <th className="py-2 px-4 border-b">Total Capacity</th>
                   <th className="py-2 px-4 border-b">Email</th>
                   <th className="py-2 px-4 border-b">Phone No.</th>
                   <th className="py-2 px-4 border-b">Actions</th>
@@ -95,12 +94,11 @@ const Driver = () => {
                   filteredoperatorData.map((operator) => (
                     <tr key={operator.operatorId} className="even:bg-gray-200 text-center">
                       <td className="py-2 px-4 border-b">{operator.operatorId}</td>
-                      <td className="py-2 px-4 border-b">{operator.User.firstName} {operator.User.lastName}</td>
+                      <td className="py-2 px-4 border-b">{operator.user.firstName} {operator.user.lastName}</td>
                       <td className="py-2 px-4 border-b">{operator.jeepneyNumber}</td>
                       <td className="py-2 px-4 border-b">{operator.plateNumber}</td>
-                      <td className="py-2 px-4 border-b">{operator.totalCapacity}</td>
-                      <td className="py-2 px-4 border-b">{operator.User.email}</td>
-                      <td className="py-2 px-4 border-b">{operator.User.phoneNumber}</td>
+                      <td className="py-2 px-4 border-b">{operator.user.email}</td>
+                      <td className="py-2 px-4 border-b">{operator.user.phoneNumber}</td>
                       <td className="py-2 px-4 border-b">
                         <button
                           className="text-blue-500 hover:text-blue-700 ml-2 icon"
