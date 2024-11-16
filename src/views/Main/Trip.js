@@ -13,7 +13,7 @@ const Trip = () => {
   useEffect(() => {
     const fetchTripData = async () => {
       try {
-        const response = await axios.get("api/website/trip/list", { headers: { 'Authorization': `Bearer ${token}` } }); 
+        const response = await axios.get("website/trip/list", { headers: { 'Authorization': `Bearer ${token}` } }); 
         setTripData(response.data); 
       } catch (error) {
         console.error("Error fetching trip data:", error);
