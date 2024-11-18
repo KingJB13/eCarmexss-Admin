@@ -64,7 +64,7 @@ const Home = () => {
 
         const handleChange = (e) => {
             const { name, value } = e.target;
-            if (!/^\d*$/.test(value)) {
+            if (!/^\d*\.?\d*$/.test(value)) {
                 setErrors(prevErrors => ({
                     ...prevErrors,
                     [name]: 'Please enter a valid number'
@@ -80,10 +80,21 @@ const Home = () => {
                 }));
             }
         };
+        
         const formatDateTime = (dateString) => {
-            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-            return new Date(dateString).toLocaleDateString(undefined, options);
+            const date = new Date(dateString);
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+            const day = String(date.getDate()).padStart(2, '0');
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+        
+            return `${month}-${day}-${year} ${hours}:${minutes}`;
         };
+        
+        // Example usage
+        console.log(formatDateTime("2024-11-18T14:30:00"));
+        
         const handleSubmit = async (e) => {
             e.preventDefault();
             const newErrors = {};
