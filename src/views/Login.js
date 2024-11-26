@@ -12,7 +12,6 @@ const LoginScreen = () => {
         const token = localStorage.getItem('Token');
     
         if (token) {
-          localStorage.clear();
           navigate("/Home");
         }
       }, [navigate]);
