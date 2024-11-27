@@ -45,7 +45,7 @@ const Trip = () => {
   };
 
   const filteredTripData = tripData.filter((trip) =>
-    trip.jeepneyNumber.toLowerCase().includes(searchQuery.toLowerCase())
+    trip.operator.jeepneyNumber.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleSearchBar = (e) => {
@@ -96,13 +96,13 @@ const Trip = () => {
                   filteredTripData.map((trip) => (
                     <tr key={trip.tripId} className="even:bg-gray-200">
                       <td className="py-2 px-4 border-b">{trip.tripId}</td>
-                      <td className="py-2 px-4 border-b">{trip.Operator.jeepneyNumber}</td>
-                      <td className="py-2 px-4 border-b">{trip.Operator.plateNumber}</td>
-                      <td className="py-2 px-4 border-b">{trip.Operator.User.firstName} {trip.Operator.User.lastName}</td>
-                      <td className="py-2 px-4 border-b">{trip.Operator.User.phoneNumber}</td>
-                      <td className="py-2 px-4 border-b">{trip.Shift.Conductor.conductorFirstName} {trip.Shift.Conductor.conductorLastName}</td>
+                      <td className="py-2 px-4 border-b">{trip.operator.jeepneyNumber}</td>
+                      <td className="py-2 px-4 border-b">{trip.operator.plateNumber}</td>
+                      <td className="py-2 px-4 border-b">{trip.operator.User.firstName} {trip.operator.user.lastName}</td>
+                      <td className="py-2 px-4 border-b">{trip.operator.User.phoneNumber}</td>
+                      <td className="py-2 px-4 border-b">{trip.shift.Conductor.conductorFirstName} {trip.shift.conductor.conductorLastName}</td>
                       <td className="py-2 px-4 border-b">{trip.passengerCount}</td>
-                      <td className="py-2 px-4 border-b">{trip.Operator.totalCapacity === trip.passengerCount 
+                      <td className="py-2 px-4 border-b">{trip.operator.totalCapacity === trip.passengerCount 
                                                           ? 'Full' 
                                                           : trip.Operator.totalCapacity-10 <= trip.passengerCount 
                                                           ? 'Standing': 'Seating'}
