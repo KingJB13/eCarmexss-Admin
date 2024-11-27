@@ -45,7 +45,7 @@ const Trip = () => {
   };
 
   const filteredTripData = tripData.filter((trip) =>
-    trip.busNo.toLowerCase().includes(searchQuery.toLowerCase())
+    trip.jeepneyNumber.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleSearchBar = (e) => {
