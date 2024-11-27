@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../api/axios";
-import { FaChartBar, FaPlus, FaCalendarAlt, FaTrash, FaUserAlt, FaIdCardAlt } from "react-icons/fa";
+import { FaChartBar, FaPlus, FaTrash, FaUserAlt, FaIdCardAlt } from "react-icons/fa";
 import Sidebar from "../../components/Sidebar";
 import { toast } from 'react-toastify';
 const Driver = () => {
@@ -57,7 +57,6 @@ const Driver = () => {
     { title: "Register", icon: <FaPlus />, path: "/register" },
     { title: "Driver", icon: <FaIdCardAlt />, path: "/driver" },
     { title: "Conductor", icon: <FaIdCardAlt />, path: "/conductor" },
-    { title: "Active Trips", icon: <FaCalendarAlt />, path: "/trip" },
     { title: "Register Conductor", icon: <FaUserAlt />, path: "/register-conductor"}
   ];
 

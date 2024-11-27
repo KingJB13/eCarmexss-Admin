@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/Sidebar';
-import { FaChartBar, FaPlus, FaCalendarAlt, FaUserAlt, FaIdCardAlt } from "react-icons/fa";
+import { FaChartBar, FaPlus, FaUserAlt, FaIdCardAlt } from "react-icons/fa";
 import axios from '../../api/axios';
 import { toast } from 'react-toastify';
 
@@ -10,7 +10,6 @@ const RegisterConductor = () => {
     { title: "Register", icon: <FaPlus />, path: "/register" },
     { title: "Driver", icon: <FaIdCardAlt />, path: "/driver" },
     { title: "Conductor", icon: <FaIdCardAlt />, path: "/conductor" },
-    { title: "Active Trips", icon: <FaCalendarAlt />, path: "/trip" },
     { title: "Register Conductor", icon: <FaUserAlt />, path: "/register-conductor"}
   ];
   
