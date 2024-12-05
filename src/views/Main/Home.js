@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar'
-import { FaChartBar, FaPlus, FaUserAlt, FaIdCardAlt, FaIdCard, FaUser, FaInfoCircle, FaDollarSign } from "react-icons/fa"
+import { FaChartBar, FaPlus, FaUserAlt, FaIdCardAlt, FaIdCard, FaUser, FaInfoCircle, FaMoneyBill } from "react-icons/fa"
 import axios from '../../api/axios';
 import { toast } from 'react-toastify';
 
 const Home = () => {
+        const navigate = useNavigate();
+        const handleDriverNavigate = () => {
+            navigate('/driver');
+        }
+        const handleConductorNavigate = () => {
+            navigate('/conductor');
+        }
         const token = localStorage.getItem('Token');
         useEffect(() => {
             const fetchOperatorData = async () => {
@@ -201,7 +209,7 @@ const Home = () => {
                             </form>
                         </div>
                         <div className="col-span-1 md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-blue-500 p-4 border border-blue-700 rounded-md flex items-center justify-center">
+                            <div className="bg-blue-500 p-4 border border-blue-700 rounded-md flex items-center justify-center cursor-pointer hover:bg-blue-600 transition-colors" onClick={()=>{}}>
                                 <div className="text-white">
                                     <div className='grid grid-cols-2 text-start'>
                                         <div className='px-10 text-center py-5'><FaInfoCircle size={50}/> </div>
@@ -215,32 +223,36 @@ const Home = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-green-500 p-4 border border-green-700 rounded-md flex items-center justify-center">
-                                <div className="px-10 text-white">
-                                    <div className='grid grid-cols-2'>
-                                        <div className='text-center'><FaUser size={50}/> </div>
-                                        <div>
-                                            <div className="text-3xl">{dashboardData.totalDrivers}</div>
-                                            <div className="text-lg font-medium text-white">Total Drivers</div>
+                                <div className="bg-green-500 p-4 border border-green-700 rounded-md flex items-center justify-center cursor-pointer hover:bg-green-600 transition-colors" onClick={handleDriverNavigate}>
+                                    <div className="px-10 text-white">
+                                        <div className="grid grid-cols-2">
+                                            <div className="text-center">
+                                                <FaUser size={50} />
+                                            </div>
+                                            <div>
+                                                <div className="text-3xl">{dashboardData.totalDrivers}</div>
+                                                <div className="text-m font-medium text-white">Total Drivers</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="bg-yellow-500 p-4 border border-yellow-700 rounded-md flex items-center justify-center">
-                                <div className="px-10 text-white">
-                                    <div className='grid grid-cols-2'>
-                                        <div className='text-center'><FaIdCard size={50}/> </div>
-                                        <div>
-                                            <div className="text-3xl">{dashboardData.totalConductors}</div>
-                                            <div className="text-m font-medium text-white">Total Conductors</div>
+                                <div className="bg-yellow-500 p-4 border border-yellow-700 rounded-md flex items-center justify-center cursor-pointer hover:bg-yellow-600 transition-colors" onClick={handleConductorNavigate}>
+                                    <div className="px-10 text-white">
+                                        <div className="grid grid-cols-2">
+                                            <div className="text-center">
+                                                <FaIdCard size={50} />
+                                            </div>
+                                            <div>
+                                                <div className="text-3xl">{dashboardData.totalConductors}</div>
+                                                <div className="text-m font-medium text-white">Total Conductors</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-span-1  bg-red-500 p-4 border border-red-700 rounded-md flex items-center justify-center">
+                            <div className="col-span-1  bg-red-500 p-4 border border-red-700 rounded-md flex items-center justify-center cursor-pointer hover:bg-red-600 transition-colors" onClick={()=>{}}>
                                 <div className="px-10 text-white">
                                     <div className='grid grid-cols-2'>
-                                        <div className='text-center'><FaDollarSign size={50}/> </div>
+                                        <div className='text-center'><FaMoneyBill size={50}/> </div>
                                         <div>
                                             <div className="text-3xl">{dashboardData.dailyRevenue} PHP</div>
                                             <div className="text-m font-medium text-white">Daily Revenue</div>
@@ -248,10 +260,10 @@ const Home = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-purple-500 p-4 border border-purple-700 rounded-md flex items-center justify-center">
+                            <div className="bg-purple-500 p-4 border border-purple-700 rounded-md flex items-center justify-center cursor-pointer hover:bg-purple-600 transition-colors" onClick={()=>{}}>
                                 <div className="px-10 text-white">
                                         <div className='grid grid-cols-2'>
-                                            <div className='text-center'><FaDollarSign size={50}/> </div>
+                                            <div className='text-center'><FaMoneyBill size={50}/> </div>
                                             <div>
                                                 <div className="text-3xl">{dashboardData.bookingRevenue} PHP</div>
                                                 <div className="text-m font-medium text-white">Booking Revenue</div>
@@ -259,10 +271,10 @@ const Home = () => {
                                         </div>
                                 </div>
                             </div>
-                            <div className="bg-pink-500 p-4 border border-pink-700 rounded-md flex items-center justify-center">
+                            <div className="bg-pink-500 p-4 border border-pink-700 rounded-md flex items-center justify-center cursor-pointer hover:bg-pink-600 transition-colors" onClick={()=>{}}>
                                 <div className="px-10 text-white">
                                     <div className='grid grid-cols-2'>
-                                        <div className='text-center'><FaDollarSign size={50}/> </div>
+                                        <div className='text-center'><FaMoneyBill size={50}/> </div>
                                         <div>
                                             <div className="text-3xl">{dashboardData.waitingPassengerRevenue} PHP</div>
                                             <div className="text-m font-medium text-white">Waiting Passenger Revenue</div>
