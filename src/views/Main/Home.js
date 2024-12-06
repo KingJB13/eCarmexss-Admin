@@ -254,7 +254,7 @@ const Home = () => {
                                     <div className='grid grid-cols-2'>
                                         <div className='text-center'><FaMoneyBill size={50}/> </div>
                                         <div>
-                                            <div className="text-3xl">{dashboardData.dailyRevenue} PHP</div>
+                                            <div className="text-3xl">{dashboardData.dailyRevenue.toFixed(2)} PHP</div>
                                             <div className="text-m font-medium text-white">Daily Revenue</div>
                                         </div>
                                     </div>
@@ -265,7 +265,7 @@ const Home = () => {
                                         <div className='grid grid-cols-2'>
                                             <div className='text-center'><FaMoneyBill size={50}/> </div>
                                             <div>
-                                                <div className="text-3xl">{dashboardData.bookingRevenue} PHP</div>
+                                                <div className="text-3xl">{dashboardData.bookingRevenue.toFixed(2)} PHP</div>
                                                 <div className="text-m font-medium text-white">Booking Revenue</div>
                                             </div>
                                         </div>
@@ -276,7 +276,7 @@ const Home = () => {
                                     <div className='grid grid-cols-2'>
                                         <div className='text-center'><FaMoneyBill size={50}/> </div>
                                         <div>
-                                            <div className="text-3xl">{dashboardData.waitingPassengerRevenue} PHP</div>
+                                            <div className="text-3xl">{dashboardData.waitingPassengerRevenue.toFixed(2)} PHP</div>
                                             <div className="text-m font-medium text-white">Waiting Passenger Revenue</div>
                                         </div>
                                     </div>
@@ -305,7 +305,7 @@ const Home = () => {
                                                 <td className="py-2 px-4 border-b">{ticket.jeepneyNumber}</td>
                                                 <td className="py-2 px-4 border-b">{ticket.originName}</td>
                                                 <td className="py-2 px-4 border-b">{ticket.destinationName}</td>
-                                                <td className="py-2 px-4 border-b">{ticket.amount}</td>
+                                                <td className="py-2 px-4 border-b">{ticket.amount.toFixed(2)}</td>
                                                 <td className="py-2 px-4 border-b">{formatDateTime(ticket.dateTime)}</td>
                                             </tr>
                                             ))
@@ -341,7 +341,7 @@ const Home = () => {
                                                 <td className="py-2 px-4 border-b">{booking.jeepneyNumber}</td>
                                                 <td className="py-2 px-4 border-b">{booking.originName}</td>
                                                 <td className="py-2 px-4 border-b">{booking.destinationName}</td>
-                                                <td className="py-2 px-4 border-b">{booking.amount}</td>
+                                                <td className="py-2 px-4 border-b">{booking.amount.toFixed(2)}</td>
                                                 <td className="py-2 px-4 border-b">{formatDateTime(booking.dateTime)}</td>
                                             </tr>
                                             ))
@@ -376,7 +376,7 @@ const Home = () => {
                                                 <td className="py-2 px-4 border-b">{waiting.jeepneyNumber}</td>
                                                 <td className="py-2 px-4 border-b">{waiting.originName}</td>
                                                 <td className="py-2 px-4 border-b">{waiting.destinationName}</td>
-                                                <td className="py-2 px-4 border-b">{waiting.amount}</td>
+                                                <td className="py-2 px-4 border-b">{waiting.amount.toFixed(2)}</td>
                                                 <td className="py-2 px-4 border-b">{formatDateTime(waiting.dateTime)}</td>
                                             </tr>
                                             ))
